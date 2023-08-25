@@ -49,29 +49,7 @@ class CreateNovalnetPaymentMethods1200
     public function run()
     {
         $paymentMethods = [
-            'NOVALNET_SEPA'                     => 'Novalnet Direct Debit SEPA',
             'NOVALNET_CC'                       => 'Novalnet Credit/Debit Cards',
-            'NOVALNET_APPLEPAY'                 => 'Novalnet ApplePay',
-            'NOVALNET_INVOICE'                  => 'Novalnet Invoice',
-            'NOVALNET_PREPAYMENT'               => 'Novalnet Prepayment',
-            'NOVALNET_GUARANTEED_INVOICE'       => 'Novalnet Invoice with payment guarantee',
-            'NOVALNET_GUARANTEED_SEPA'          => 'Novalnet Direct debit SEPA with payment guarantee',
-            'NOVALNET_IDEAL'                    => 'Novalnet iDEAL',
-            'NOVALNET_SOFORT'                   => 'Novalnet Sofort',
-            'NOVALNET_GIROPAY'                  => 'Novalnet giropay',
-            'NOVALNET_CASHPAYMENT'              => 'Novalnet Barzahlen/viacash',
-            'NOVALNET_PRZELEWY24'               => 'Novalnet Przelewy24',
-            'NOVALNET_EPS'                      => 'Novalnet eps',
-            'NOVALNET_PAYPAL'                   => 'Novalnet PayPal',
-            'NOVALNET_POSTFINANCE_CARD'         => 'Novalnet PostFinance Card',
-            'NOVALNET_POSTFINANCE_EFINANCE'     => 'Novalnet PostFinance E-Finance',
-            'NOVALNET_BANCONTACT'               => 'Novalnet Bancontact',
-            'NOVALNET_MULTIBANCO'               => 'Novalnet Multibanco',
-            'NOVALNET_ONLINE_BANK_TRANSFER'     => 'Novalnet Online bank transfer',
-            'NOVALNET_ALIPAY'                   => 'Novalnet Alipay',
-            'NOVALNET_WECHAT_PAY'               => 'Novalnet WeChat Pay',
-            'NOVALNET_TRUSTLY'                  => 'Novalnet Trustly',
-            'NOVALNET_GOOGLEPAY'                => 'Novalnet Google Pay'
         ];
 
         foreach($paymentMethods as $paymentMethodKey => $paymentMethodName) {
