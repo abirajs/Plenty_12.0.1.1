@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * This file is used for registering the Novalnet payment methods
  * and Event procedures
@@ -209,7 +209,8 @@ class NovalnetServiceProvider extends ServiceProvider
                     }
                 }
           
-                return $content;
+                $event->setValue($content);
+                $event->setType($contentType);
             }
         });
     }
