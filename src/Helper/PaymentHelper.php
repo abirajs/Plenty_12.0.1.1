@@ -121,29 +121,7 @@ class PaymentHelper
     public static function getPaymentMethods()
     {
         return [
-            NovalnetSepaPaymentMethod::PAYMENT_KEY                  => NovalnetSepaPaymentMethod::class,
             NovalnetCcPaymentMethod::PAYMENT_KEY                    => NovalnetCcPaymentMethod::class,
-            NovalnetApplePayPaymentMethod::PAYMENT_KEY              => NovalnetApplePayPaymentMethod::class,
-            NovalnetGooglePayPaymentMethod::PAYMENT_KEY             => NovalnetGooglePayPaymentMethod::class,
-            NovalnetInvoicePaymentMethod::PAYMENT_KEY               => NovalnetInvoicePaymentMethod::class,
-            NovalnetPrepaymentPaymentMethod::PAYMENT_KEY            => NovalnetPrepaymentPaymentMethod::class,
-            NovalnetGuaranteedInvoicePaymentMethod::PAYMENT_KEY     => NovalnetGuaranteedInvoicePaymentMethod::class,
-            NovalnetGuaranteedSepaPaymentMethod::PAYMENT_KEY        => NovalnetGuaranteedSepaPaymentMethod::class,
-            NovalnetIdealPaymentMethod::PAYMENT_KEY                 => NovalnetIdealPaymentMethod::class,
-            NovalnetSofortPaymentMethod::PAYMENT_KEY                => NovalnetSofortPaymentMethod::class,
-            NovalnetGiropayPaymentMethod::PAYMENT_KEY               => NovalnetGiropayPaymentMethod::class,
-            NovalnetCashpaymentPaymentMethod::PAYMENT_KEY           => NovalnetCashpaymentPaymentMethod::class,
-            NovalnetPrzelewy24PaymentMethod::PAYMENT_KEY            => NovalnetPrzelewy24PaymentMethod::class,
-            NovalnetEpsPaymentMethod::PAYMENT_KEY                   => NovalnetEpsPaymentMethod::class,
-            NovalnetPaypalPaymentMethod::PAYMENT_KEY                => NovalnetPaypalPaymentMethod::class,
-            NovalnetPostfinanceCardPaymentMethod::PAYMENT_KEY       => NovalnetPostfinanceCardPaymentMethod::class,
-            NovalnetPostfinanceEfinancePaymentMethod::PAYMENT_KEY   => NovalnetPostfinanceEfinancePaymentMethod::class,
-            NovalnetBancontactPaymentMethod::PAYMENT_KEY            => NovalnetBancontactPaymentMethod::class,
-            NovalnetMultibancoPaymentMethod::PAYMENT_KEY            => NovalnetMultibancoPaymentMethod::class,
-            NovalnetOnlineBankTransferPaymentMethod::PAYMENT_KEY    => NovalnetOnlineBankTransferPaymentMethod::class,
-            NovalnetAlipayPaymentMethod::PAYMENT_KEY                => NovalnetAlipayPaymentMethod::class,
-            NovalnetWechatPayPaymentMethod::PAYMENT_KEY             => NovalnetWechatPayPaymentMethod::class,
-            NovalnetTrustlyPaymentMethod::PAYMENT_KEY               => NovalnetTrustlyPaymentMethod::class
         ];
     }
 
@@ -197,29 +175,7 @@ class PaymentHelper
     public function getPaymentMethodsKey()
     {
         return [
-                    NovalnetSepaPaymentMethod::PAYMENT_KEY,
                     NovalnetCcPaymentMethod::PAYMENT_KEY,
-                    NovalnetApplePayPaymentMethod::PAYMENT_KEY,
-                    NovalnetInvoicePaymentMethod::PAYMENT_KEY,
-                    NovalnetPrepaymentPaymentMethod::PAYMENT_KEY,
-                    NovalnetGuaranteedInvoicePaymentMethod::PAYMENT_KEY,
-                    NovalnetGuaranteedSepaPaymentMethod::PAYMENT_KEY,
-                    NovalnetIdealPaymentMethod::PAYMENT_KEY,
-                    NovalnetSofortPaymentMethod::PAYMENT_KEY,
-                    NovalnetGiropayPaymentMethod::PAYMENT_KEY,
-                    NovalnetCashpaymentPaymentMethod::PAYMENT_KEY,
-                    NovalnetPrzelewy24PaymentMethod::PAYMENT_KEY,
-                    NovalnetEpsPaymentMethod::PAYMENT_KEY,
-                    NovalnetPaypalPaymentMethod::PAYMENT_KEY,
-                    NovalnetPostfinanceCardPaymentMethod::PAYMENT_KEY,
-                    NovalnetPostfinanceEfinancePaymentMethod::PAYMENT_KEY,
-                    NovalnetBancontactPaymentMethod::PAYMENT_KEY,
-                    NovalnetMultibancoPaymentMethod::PAYMENT_KEY,
-                    NovalnetOnlineBankTransferPaymentMethod::PAYMENT_KEY,
-                    NovalnetAlipayPaymentMethod::PAYMENT_KEY,
-                    NovalnetWechatPayPaymentMethod::PAYMENT_KEY,
-                    NovalnetTrustlyPaymentMethod::PAYMENT_KEY,
-                    NovalnetGooglePayPaymentMethod::PAYMENT_KEY
                 ];
     }
 
