@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * This file is used for registering the Novalnet payment methods
  * and Event procedures
