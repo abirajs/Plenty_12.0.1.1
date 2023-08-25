@@ -304,22 +304,10 @@ class NovalnetAssistant extends WizardProvider
 
         $config = $this->CreateOptionalPaymentDisplayConfiguration($config, $paymentMethodKey);
         }
-        // Load the SEPA payment configuration
-        $config = $this->createSepaPaymentConfiguration($config);
+
         // Load the card payment configuration
         $config = $this->createCcPaymentConfiguration($config);
-        // Load the Invoice payment configuration
-        $config = $this->createInvoicePaymentConfiguration($config);
-        // Load the Prepayment payment configuration
-        $config = $this->createPrepaymentPaymentConfiguration($config);
-         // Load the Cashpayment payment configuration
-        $config = $this->createCashpaymentPaymentConfiguration($config);
-        // Load the Guaranteed payments configuration
-        $config = $this->createGuaranteedPaymentConfiguration($config);
-        // Load the Google Pay payments configuration
-        $config = $this->createGooglePayPaymentConfiguration($config);
-        // Load the On Hold configuration
-        $config = $this->createOnHoldConfiguration($config);
+
         return $config;
     }
 
