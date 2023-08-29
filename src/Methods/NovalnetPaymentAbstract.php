@@ -189,6 +189,7 @@ abstract class NovalnetPaymentAbstract extends PaymentMethodBaseService
      */
     public function isSwitchableTo($orderId = null): bool
     {
+        return false;
         if($orderId > 0) {
             return true;
         }
@@ -204,6 +205,7 @@ abstract class NovalnetPaymentAbstract extends PaymentMethodBaseService
      */
     public function isSwitchableFrom($orderId = null): bool
     {
+        return false;
         if($orderId > 0) {
             $transactionDetails = $this->paymentService->getDetailsFromPaymentProperty($orderId);
             if( strpos($this::PAYMENT_KEY, 'NOVALNET') !== false &&  ( (!empty($transactionDetails['tx_status']) && !in_array($transactionDetails['tx_status'], ['PENDING', 'ON_HOLD', 'CONFIRMED', 'DEACTIVATED'])) || empty($transactionDetails['tx_status']) )) {
