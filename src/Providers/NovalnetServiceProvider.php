@@ -209,7 +209,7 @@ class NovalnetServiceProvider extends ServiceProvider
                     }
                 }
                $event->setValue($content);
-			   $event->setType($contentType);
+	       $event->setType($contentType);
             }
         });
     }
