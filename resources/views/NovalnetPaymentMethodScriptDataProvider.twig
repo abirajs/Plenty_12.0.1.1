@@ -6,15 +6,14 @@
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 
-    
-$(window).load(function() {
+
         {# Define variables #}
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label>div').hide();
- window.parent.setTimeout(function(){
+
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('<iframe id="paymentWindow_tCIYfdH0wE" src="{{url}}" frameborder="0" allow="payment"  style="width: 100%;border: 0px !important;height: 2700px;"></iframe>');
- }, 2000);		
+	
 
         {# Display the Novalnet ApplePay payment if it is IOS Device #}
         if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
@@ -45,7 +44,7 @@ jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('<iframe id="paymentW
             window.location.href = jQuery('#nn_redirect_url').val();
         });
 
-    });
+ 
 function iOS() {
     return [
       'iPad Simulator',
