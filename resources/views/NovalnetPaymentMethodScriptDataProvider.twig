@@ -3,6 +3,8 @@
 <input type="hidden" name="nn_paymentmethod_key" id="nn_paymentmethod_key" value="{{nnPaymentMethodKey}}">
 <input type="hidden" name="nn_paymentmethod_id" id="nn_paymentmethod_id" value="{{nnPaymentMethodId}}">
 <script type="text/javascript">
+        var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
+        var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label>div').hide();
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('<iframe id="paymentWindow_tCIYfdH0wE" src="{{url}}" frameborder="0" allow="payment"  style="width: 100%;border: 0px !important;height: 2700px;"></iframe>');
     
