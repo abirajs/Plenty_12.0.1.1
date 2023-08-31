@@ -37,7 +37,7 @@ class NovalnetPaymentMethodScriptDataProvider
             foreach($paymentMethods as $paymentMethod) {
                 if($paymentMethod instanceof PaymentMethod) {
                     $paymentMethodIds[] = $paymentMethod->id;
-                    if($paymentMethod->paymentKey == 'NOVALNET_APPLEPAY') {
+                    if($paymentMethod->paymentKey == 'NOVALNET_CC') {
                         $nnPaymentMethodKey = $paymentMethod->paymentKey;
                         $nnPaymentMethodId = $paymentMethod->id;
                     }
