@@ -12,6 +12,7 @@ use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
 use Plenty\Modules\Payment\Method\Models\PaymentMethod;
 use Novalnet\Helper\PaymentHelper;
+use Plenty\Plugin\Log\Loggable;
 /**
  * Class NovalnetPaymentMethodScriptDataProvider
  *
@@ -19,6 +20,7 @@ use Novalnet\Helper\PaymentHelper;
  */
 class NovalnetPaymentMethodScriptDataProvider
 {
+     use Loggable;
     /**
      * Script for displaying the reinitiate payment button
      *
