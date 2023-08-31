@@ -38,13 +38,10 @@ class NovalnetPaymentMethodScriptDataProvider
                 if($paymentMethod instanceof PaymentMethod) {
                     $paymentMethodIds[] = $paymentMethod->id;
                     if($paymentMethod->paymentKey == 'NOVALNET_APPLEPAY') {
-                        $nnPaymentMethodKeyss = $paymentMethod->paymentKey;
-                        $nnPaymentMethodIdss = $paymentMethod->id;
-                    }
-                    if($paymentMethod->paymentKey == 'NOVALNET_CC') {
                         $nnPaymentMethodKey = $paymentMethod->paymentKey;
                         $nnPaymentMethodId = $paymentMethod->id;
                     }
+                  
                 }
             }
         }
