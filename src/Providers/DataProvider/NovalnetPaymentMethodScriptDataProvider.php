@@ -12,6 +12,7 @@ use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
 use Plenty\Modules\Payment\Method\Models\PaymentMethod;
 use Novalnet\Helper\PaymentHelper;
+use Novalnet\Services\PaymentService;
 use Plenty\Plugin\Log\Loggable;
 /**
  * Class NovalnetPaymentMethodScriptDataProvider
@@ -32,7 +33,8 @@ class NovalnetPaymentMethodScriptDataProvider
     {
         // Load the all Novalnet payment methods
         $paymentMethodRepository = pluginApp(PaymentMethodRepositoryContract::class);
-         $paymentHelper      = pluginApp(PaymentHelper::class);
+        $paymentHelper           = pluginApp(PaymentHelper::class);
+	$paymentService          = pluginApp(PaymentService::class);   
         $paymentMethods          = $paymentMethodRepository->allForPlugin('plenty_novalnet');
         if(!is_null($paymentMethods)) {
             $paymentMethodIds              = [];
@@ -51,6 +53,8 @@ class NovalnetPaymentMethodScriptDataProvider
 							'amount' => 4955,
 							'currency' => 'EUR',
 							'test_mode' => 1,
+		                                        'return_url' => $paymentService->getReturnPageUrl(),
+		     
 						];
 						$paymentRequestData['transaction']['hosted_page'] = [
 							'type' => 'PAYMENTFORM',
