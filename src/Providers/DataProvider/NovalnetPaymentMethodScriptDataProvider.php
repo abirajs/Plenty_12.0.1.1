@@ -64,8 +64,8 @@ class NovalnetPaymentMethodScriptDataProvider
 							'tariff' => '10004',
 						];
 						$paymentRequestData['customer'] = [
-							'first_name' => 'PAYMENTFORM',
-							'last_name' => 'PAYMENTFORM',
+							'first_name' => 'Nobert',
+							'last_name' => 'Maier',
 							'email' => 'test@gmail.com',
 							'customer_ip' => '125.21.64.250',
 							
