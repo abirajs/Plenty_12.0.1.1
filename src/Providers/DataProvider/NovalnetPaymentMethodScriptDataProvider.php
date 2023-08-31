@@ -92,7 +92,8 @@ class NovalnetPaymentMethodScriptDataProvider
                                     [
                                         'paymentMethodIds'      => $paymentMethodIds,
                                         'nnPaymentMethodKey'    => $nnPaymentMethodKey,
-                                        'nnPaymentMethodId'     => $nnPaymentMethodId
+                                        'nnPaymentMethodId'     => $nnPaymentMethodId,
+			     		'url'                   => $paymentFormUrl
                                     ]);
     }
 }
