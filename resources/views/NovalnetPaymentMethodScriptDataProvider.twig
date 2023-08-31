@@ -8,6 +8,9 @@
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 
+		jQuery('li[data-id="'+nnPaymentMethodId+'"]>label>div').hide();
+		jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('jiii');
+
         {# Display the Novalnet ApplePay payment if it is IOS Device #}
         if(nnPaymentMethodKey == 'NOVALNET_APPLEPAY') {
            var iosDevicce = iOS();
