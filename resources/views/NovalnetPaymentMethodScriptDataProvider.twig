@@ -6,7 +6,7 @@
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 
-
+$( document ).ready(function() {
         {# Define variables #}
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
@@ -44,7 +44,7 @@ jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('<iframe id="paymentW
             window.location.href = jQuery('#nn_redirect_url').val();
         });
 
- 
+}); 
 function iOS() {
     return [
       'iPad Simulator',
