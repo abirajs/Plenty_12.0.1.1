@@ -15,17 +15,49 @@ $( window ).on("load", function() {
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('<iframe id="novalnet_iframe" src="{{url}}" frameborder="0" allow="payment"  style="width: 100%;border: 0px !important;height: 2700px;"></iframe>');
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label>div').hide();
 
-
-        function iframe(){
-            let lineitems = JSON.parse($("#lineitems").val());
+        function iframe() {
             const postMessageData = {
                 iframe : '#novalnet_iframe',
                 initForm: { 
-                    orderInformation : {
-                        lineItems: lineitems,
-                        billing: {},
-                        labelText: 'Total'
+                   orderInformation : {
+                    merchantName: "Test Development for Google Pay",
+                    lineItems: [{
+                        label: "Bag Subtotal",
+                        type: "LINE_ITEM",
+                        amount: 1500
                     },
+                    {
+                        label: "Free Shipping",
+                        type: "LINE_ITEM",
+                        amount: 0
+                    },
+                    {
+                        label: "Estimated Tax",
+                        type: "TAX",
+                        amount: 350      
+                    }],
+                    billing: {
+                        requiredFields: ["postalAddress", "phone", "email"]
+                    },
+                    shipping: {
+                        requiredFields: ["postalAddress", "phone"],
+                        defaultIdentifier: "freeshipping",
+                        methods: [
+                        {
+                            identifier: "freeshipping",
+                            amount: 0,
+                            detail: "Free shipping within Deutschland",				
+                            label: "Free Shipping"
+                        },
+                        {
+                            identifier: "dhlshipping",
+                            amount: 500,
+                            detail: "The product will be delivered on the availability of executive",
+                            label: "DHL Shipping"
+                        }
+                        ]
+                    }
+                },    
                     uncheckPayments: true,
                     setWalletPending: false,
                     showButton: false,
