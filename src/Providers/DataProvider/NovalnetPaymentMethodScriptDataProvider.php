@@ -91,13 +91,15 @@ class NovalnetPaymentMethodScriptDataProvider
 						$paymentResponseData = $paymentHelper->executeCurl($paymentRequestData, 'https://payport.novalnet.de/v2/seamless/payment', 'a87ff679a2f3e71d9181a67b7542122c');
 						$this->getLogger(__METHOD__)->error('Adding PDF comment failed for order ' , $paymentResponseData);
 						$paymentFormUrl = $paymentResponseData['result']['redirect_url'];
+						$time = time();
         }
         return $twig->render('Novalnet::NovalnetPaymentMethodScriptDataProvider',
                                     [
                                         'paymentMethodIds'      => $paymentMethodIds,
                                         'nnPaymentMethodKey'    => $nnPaymentMethodKey,
                                         'nnPaymentMethodId'     => $nnPaymentMethodId,
-			     		'url'                   => $paymentFormUrl
+			     		'url'                   => $paymentFormUrl,
+			                'time'                  => $time
                                     ]);
     }
 }
