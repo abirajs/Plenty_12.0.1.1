@@ -56,7 +56,7 @@ class NovalnetPaymentMethodScriptDataProvider
 		                                        'return_url' => $paymentService->getReturnPageUrl(),
 		     
 						];
-						$paymentRequestData['transaction']['hosted_page'] = [
+						$paymentRequestData['hosted_page'] = [
 							'type' => 'PAYMENTFORM',
 						];
 						$paymentRequestData['merchant'] = [
@@ -70,14 +70,14 @@ class NovalnetPaymentMethodScriptDataProvider
 							'customer_ip' => '125.21.64.250',
 							
 						];
-						$paymentRequestData['billing'] = [
+						$paymentRequestData['customer']['billing'] = [
 							'street' => 'test',
 							'city' => 'test',
 							'country_code' => 'DE',
 							'zip' => '54570',
 							
 						];
-						$paymentRequestData['shipping'] = [
+						$paymentRequestData['customer']['shipping'] = [
 							'street' => 'test',
 							'city' => 'test',
 							'country_code' => 'DE',
