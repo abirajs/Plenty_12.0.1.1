@@ -9,103 +9,16 @@
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 
 $( window ).on("load", function() {
+ 
         {# Define variables #}
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('<iframe id="novalnet_iframe" src="{{url}}" frameborder="0" allow="payment"  style="width: 100%;border: 0px !important;height: 2700px;"></iframe>');
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label>div').hide();
 
-        function iframe() {
-            const postMessageData = {
-                iframe : '#novalnet_iframe',
-                initForm: { 
-                   orderInformation : {
-                    merchantName: "Test Development for Google Pay",
-                    lineItems: [{
-                        label: "Bag Subtotal",
-                        type: "LINE_ITEM",
-                        amount: 1500
-                    },
-                    {
-                        label: "Free Shipping",
-                        type: "LINE_ITEM",
-                        amount: 0
-                    },
-                    {
-                        label: "Estimated Tax",
-                        type: "TAX",
-                        amount: 350      
-                    }],
-                    billing: {
-                        requiredFields: ["postalAddress", "phone", "email"]
-                    },
-                    shipping: {
-                        requiredFields: ["postalAddress", "phone"],
-                        defaultIdentifier: "freeshipping",
-                        methods: [
-                        {
-                            identifier: "freeshipping",
-                            amount: 0,
-                            detail: "Free shipping within Deutschland",				
-                            label: "Free Shipping"
-                        },
-                        {
-                            identifier: "dhlshipping",
-                            amount: 500,
-                            detail: "The product will be delivered on the availability of executive",
-                            label: "DHL Shipping"
-                        }
-                        ]
-                    }
-                },    
-                    uncheckPayments: true,
-                    setWalletPending: false,
-                    showButton: false,
-                    creditCard: {
-                        text : {
-                            error: "Your credit card details are invalid",
-                            card_holder: {
-                                label: "Card holder name",
-                                place_holder: "Card holder name",
-                                error: "Please enter the valid card holder name"
-                            },
-                            card_number: {
-                                label: "Card number",
-                                place_holder: "XXXX XXXX XXXX XXXX",
-                                error: "Please enter the valid card number"
-                            },
-                            expiry_date: {
-                                label: "Expiry date",
-                                error: "Please enter the valid expiry month / year in the given format"
-                            },
-                            cvc: {
-                                label: "CVC/CVV/CID",
-                                place_holder: "XXX",
-                                error: "Please enter the valid CVC/CVV/CID"
-                            }
-                        },
-                        formDisplay : 'labeled', // inline or labeled ::: default is inline
-                    }
-                },
-            };
-
-            // Initiate form
-            v13PaymentForm.initiate(postMessageData);
-        
-            // Receive form selected payment action
-            v13PaymentForm.selectedPayment(function(data){
-
-                if (submitButton != undefined && data.payment_details.type == 'GOOGLEPAY' || data.payment_details.type == 'APPLEPAY')
-                {
-                    submitButton.css("display", "none");
-                } else {
-                    submitButton.css("display", "block");
-                }
-            });
-        }
-        
-    
-        const v13PaymentForm = new NovalnetPaymentForm();
+const novalnetPayformRequest  = getPayformRequest();
+this.nnPaymentForm            = new NovalnetPaymentForm();
+this.nnPaymentForm.initiate( novalnetPayformRequest );
 
 
  {# Display the Novalnet ApplePay payment if it is IOS Device #}
@@ -150,4 +63,19 @@ function iOS() {
     // iPad on iOS 13 detection
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
+
+ function getPayformRequest() {
+			let payformRequest = {
+				iframe : '#novalnet_iframe' ,
+				initForm: {
+					showButton: false,
+					uncheckPayments: true,
+					orderInformation : {},
+					checkPayment: '',
+				}
+			};
+
+		
+			return payformRequest;
+		}
 </script>
