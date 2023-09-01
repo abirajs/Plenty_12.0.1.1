@@ -56,7 +56,7 @@ class NovalnetPaymentMethodScriptDataProvider
 		                                        'return_url' => $paymentService->getReturnPageUrl(),
 		     
 						];
-						$paymentRequestData['hosted_page'] = [
+						$paymentRequestData['transaction']['hosted_page'] = [
 							'type' => 'PAYMENTFORM',
 						];
 						$paymentRequestData['merchant'] = [
