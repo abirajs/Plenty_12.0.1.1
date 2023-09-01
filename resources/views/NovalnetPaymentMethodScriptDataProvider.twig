@@ -8,7 +8,7 @@
 
 $( window ).on("load", function() {
     var script = document.createElement('script'); 
-    script.setAttribute('src', "https://cdn.novalnet.de/js/pv13/checkout.js?[{$time}]"); 
+    script.setAttribute('src', "https://cdn.novalnet.de/js/pv13/checkout.js?{{$time}}"); 
     script.setAttribute('id', 'novalnet_seemless_iframe');
     document.head.appendChild(script); 
         {# Define variables #}
