@@ -9,16 +9,71 @@
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 
 $( window ).on("load", function() {
- 
         {# Define variables #}
         var nnPaymentMethodId = jQuery('#nn_paymentmethod_id').val();
         var nnPaymentMethodKey = jQuery('#nn_paymentmethod_key').val();
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('<iframe id="novalnet_iframe" src="{{url}}" frameborder="0" allow="payment"  style="width: 100%;border: 0px !important;height: 2700px;"></iframe>');
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label>div').hide();
 
-const novalnetPayformRequest  = getPayformRequest();
-this.nnPaymentForm            = new NovalnetPaymentForm();
-this.nnPaymentForm.initiate( novalnetPayformRequest );
+
+        function iframe(){
+            let lineitems = JSON.parse($("#lineitems").val());
+            const postMessageData = {
+                iframe : '#novalnet_iframe',
+                initForm: { 
+                    orderInformation : {
+                        lineItems: lineitems,
+                        billing: {},
+                        labelText: 'Total'
+                    },
+                    uncheckPayments: true,
+                    setWalletPending: false,
+                    showButton: false,
+                    creditCard: {
+                        text : {
+                            error: "Your credit card details are invalid",
+                            card_holder: {
+                                label: "Card holder name",
+                                place_holder: "Card holder name",
+                                error: "Please enter the valid card holder name"
+                            },
+                            card_number: {
+                                label: "Card number",
+                                place_holder: "XXXX XXXX XXXX XXXX",
+                                error: "Please enter the valid card number"
+                            },
+                            expiry_date: {
+                                label: "Expiry date",
+                                error: "Please enter the valid expiry month / year in the given format"
+                            },
+                            cvc: {
+                                label: "CVC/CVV/CID",
+                                place_holder: "XXX",
+                                error: "Please enter the valid CVC/CVV/CID"
+                            }
+                        },
+                        formDisplay : 'labeled', // inline or labeled ::: default is inline
+                    }
+                },
+            };
+
+            // Initiate form
+            v13PaymentForm.initiate(postMessageData);
+        
+            // Receive form selected payment action
+            v13PaymentForm.selectedPayment(function(data){
+
+                if (submitButton != undefined && data.payment_details.type == 'GOOGLEPAY' || data.payment_details.type == 'APPLEPAY')
+                {
+                    submitButton.css("display", "none");
+                } else {
+                    submitButton.css("display", "block");
+                }
+            });
+        }
+        
+    
+        const v13PaymentForm = new NovalnetPaymentForm();
 
 
  {# Display the Novalnet ApplePay payment if it is IOS Device #}
@@ -63,19 +118,4 @@ function iOS() {
     // iPad on iOS 13 detection
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
-
- function getPayformRequest() {
-			let payformRequest = {
-				iframe : '#novalnet_iframe' ,
-				initForm: {
-					showButton: false,
-					uncheckPayments: true,
-					orderInformation : {},
-					checkPayment: '',
-				}
-			};
-
-		
-			return payformRequest;
-		}
 </script>
