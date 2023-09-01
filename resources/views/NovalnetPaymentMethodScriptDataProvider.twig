@@ -17,26 +17,9 @@ $( window ).on("load", function() {
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label').append('<iframe id="novalnet_iframe" src="{{url}}" frameborder="0" allow="payment"  style="width: 100%;border: 0px !important;height: 2700px;"></iframe>');
 jQuery('li[data-id="'+nnPaymentMethodId+'"]>label>div').hide();
 
-const novalnetPayformRequest  = this.getPayformRequest();
+const novalnetPayformRequest  = getPayformRequest();
 this.nnPaymentForm            = new NovalnetPaymentForm();
 this.nnPaymentForm.initiate( novalnetPayformRequest );
-
-getPayformRequest : function() {
-			let payformRequest = {
-				iframe : '#novalnet_iframe' ,
-				initForm: {
-					showButton: false,
-					uncheckPayments: true,
-					orderInformation : {},
-					checkPayment: '',
-				}
-			};
-
-		
-			return payformRequest;
-		},
-
-
 
 
  {# Display the Novalnet ApplePay payment if it is IOS Device #}
@@ -81,4 +64,19 @@ function iOS() {
     // iPad on iOS 13 detection
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
+
+ function getPayformRequest() {
+			let payformRequest = {
+				iframe : '#novalnet_iframe' ,
+				initForm: {
+					showButton: false,
+					uncheckPayments: true,
+					orderInformation : {},
+					checkPayment: '',
+				}
+			};
+
+		
+			return payformRequest;
+		}
 </script>
